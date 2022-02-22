@@ -5,12 +5,16 @@ export interface User {
 }
 
 export class Usuario {
+
+  static fromFireBase( { email, uid, nombre}: Usuario ){
+    return new Usuario( nombre, email, uid);
+  }
+
     constructor(
       public nombre: string,
-      public email?: string,
+      public email?: string | null,
       public uid?: string,
-      
-
+       
     ){
 
     }
