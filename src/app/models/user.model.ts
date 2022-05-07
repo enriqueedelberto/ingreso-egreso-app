@@ -1,4 +1,4 @@
-export interface User {
+export interface User {//Section 7, class 81 
     nombre: string,
     correo: string,
     password: string

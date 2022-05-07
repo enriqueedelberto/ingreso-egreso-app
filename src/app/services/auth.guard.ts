@@ -7,6 +7,8 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
+
+//Section 7, class 80
 export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, 
@@ -17,7 +19,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.authService.isAuth()
         .pipe( 
-          tap( estado => {
+          tap( estado => { //For secundary effect
             if( !estado ){ return this.router.navigate(['/login']) }
             return false;
           })

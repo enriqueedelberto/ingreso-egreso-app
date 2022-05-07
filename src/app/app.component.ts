@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
    
   constructor(private authService: AuthService){
+    //Section 7
       this.authService.initAuthListener();
   }
 }

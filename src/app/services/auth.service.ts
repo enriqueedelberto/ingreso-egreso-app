@@ -52,7 +52,7 @@ export class AuthService {
 
                const newUser = new Usuario(  usuario.nombre, user?.email, user?.uid,   );
                
-               return this.firestore.doc(`${newUser.uid}/usuario`)
+               return this.firestore.doc(`${newUser.uid}/usuario`)//Section 7, class 81 
                  .set ({...newUser});
 
              });
@@ -68,7 +68,7 @@ export class AuthService {
     return this.auth.signOut();
   }
 
-  isAuth(){
+  isAuth(){ //Section 7, class 80 
     return this.auth.authState.pipe( 
        map( fbUser => fbUser != null)
     );

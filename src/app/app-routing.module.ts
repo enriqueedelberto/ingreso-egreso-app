@@ -14,7 +14,7 @@ const routes: Routes = [
       path: '',
       component: DashboardComponent,
       children: dashboardRoutes,
-      canActivate: [ AuthGuard ]
+      canActivate: [ AuthGuard ] //Section 7, class 80
     },
     {path: '**', redirectTo:''},
 ];
