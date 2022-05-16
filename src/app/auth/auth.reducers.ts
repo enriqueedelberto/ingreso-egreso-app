@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Usuario } from '../models/user.model';
 import  * as actions from './auth.actions';
-
+//Section 8, class 91
 export interface State {
     user?: Usuario; 
 }

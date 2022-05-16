@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class LoginComponent implements OnInit, OnDestroy {
    loginForm!: FormGroup;
    loading: boolean = false;
-   uiSubscription: Subscription | undefined;
+   uiSubscription: Subscription | undefined;//Section 8, class 89
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', Validators.required]
     });
 
-    this.uiSubscription = this.store.select('ui')
+    this.uiSubscription = this.store.select('ui') //Section 8, class 89
                               .subscribe( ui => {
                                  this.loading = ui.isLoading;
                                  console.log('loading subs');
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.uiSubscription?.unsubscribe();
+    this.uiSubscription?.unsubscribe(); //Section 8, class 89
   }
 
   loginUser(){
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
        return;
      }
 
-     this.store.dispatch( ui.isLoading());
+     this.store.dispatch( ui.isLoading());//Section 8, class 89
 
 
     //  Swal.fire({
@@ -64,12 +64,12 @@ export class LoginComponent implements OnInit, OnDestroy {
        console.log(result);
 
       //  Swal.close();
-      this.store.dispatch( ui.stopLoading());
+      this.store.dispatch( ui.stopLoading()); //Section 8, class 89
 
       
        this.router.navigate(['/']);
      }).catch(err => { 
-      this.store.dispatch( ui.stopLoading());
+      this.store.dispatch( ui.stopLoading());//Section 8, class 89
       console.error(err);
       
       Swal.fire({

@@ -46,9 +46,9 @@ import { appReducers } from './app.reducer';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    StoreModule.forRoot( appReducers ),
+    StoreModule.forRoot( appReducers ),//Section 8 class 87: Creation reducers and actions with snippets
     StoreDevtoolsModule.instrument({
-      maxAge: 25,
+      maxAge: 25,//Section 8 class 87: Creation reducers and actions with snippets
       logOnly: environment.production
     })
   ],

@@ -14,10 +14,10 @@ import  * as authActions from '../auth/auth.actions';
 })
 export class AuthService {
 
-  userSubscription: Subscription | undefined;
+  userSubscription: Subscription | undefined; //Section 8, class 92
 
   constructor(public auth: AngularFireAuth,
-              private store: Store<AppState>,
+              private store: Store<AppState>, //Section 8, class 91
               private firestore: AngularFirestore  ) { }
 
   initAuthListener() {
@@ -29,14 +29,14 @@ export class AuthService {
            .subscribe( (firestoreUser: any) => {
              console.log(firestoreUser);
              
-             const user =   Usuario.fromFireBase(firestoreUser );
+             const user =   Usuario.fromFireBase(firestoreUser );  //Section 8, class 92
 
-             this.store.dispatch( authActions.setUser ( {user} ));
+             this.store.dispatch( authActions.setUser ( {user} ));//Section 8, class 91
            });
        
       }else{ 
         this.userSubscription?.unsubscribe();
-        this.store.dispatch( authActions.unSetUser());
+        this.store.dispatch( authActions.unSetUser()); //Section 8, class 92
       }
 
      

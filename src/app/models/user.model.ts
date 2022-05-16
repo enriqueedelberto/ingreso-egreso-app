@@ -6,7 +6,7 @@ export interface User {//Section 7, class 81
 
 export class Usuario {
 
-  static fromFireBase( { email, uid, nombre}: Usuario ){
+  static fromFireBase( { email, uid, nombre}: Usuario ){ //Section 8, class 92
     return new Usuario( nombre, email, uid);
   }
 

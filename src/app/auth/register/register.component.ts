@@ -17,11 +17,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   registerForm!: FormGroup;
   loading: boolean = false;
-  uiSubscription: Subscription | undefined;
+  uiSubscription: Subscription | undefined;//Section 8, class 89
 
   constructor(private fb: FormBuilder, 
               private authService: AuthService,
-              private store: Store<AppState>,
+              private store: Store<AppState>,//Section 8, class 89
               private router: Router) { }
 
   ngOnInit(): void {
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   
   ngOnDestroy(): void {
-    this.uiSubscription?.unsubscribe();
+    this.uiSubscription?.unsubscribe();//Section 8, class 89
   }
 
   createUser(){
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
        const {nombre, correo, password} = this.registerForm.value; 
        
-       this.store.dispatch( uiActions.isLoading());
+       this.store.dispatch( uiActions.isLoading());//Section 8, class 89
     //  Swal.fire({
     //   title: 'Wait, please!', 
     //   timer: 2000,
@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         .then(credentials => {
           console.log(credentials);
           
-          this.store.dispatch( uiActions.stopLoading());
+          this.store.dispatch( uiActions.stopLoading());//Section 8, class 89
           // Swal.close();
 
           this.router.navigate(['/']);

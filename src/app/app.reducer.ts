@@ -2,7 +2,7 @@ import { ActionReducerMap } from '@ngrx/store';
 import * as ui from './shared/ui.reducer';
 import * as auth from './auth/auth.reducers';
 
-
+//Section 8 class 87: Creation reducers and actions with snippets
 export interface AppState {
    ui: ui.State,
    user: auth.State
@@ -12,5 +12,5 @@ export interface AppState {
 
 export const appReducers: ActionReducerMap<AppState> = {
     ui: ui.uiReducer,
-    user: auth.authReducer
+    user: auth.authReducer //Section 8, class 91
 }

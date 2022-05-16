@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import  * as  actions from './ui.actions';
-
+//Section 8 class 87: Creation reducers and actions with snippets
 export interface State {
     isLoading: boolean; 
 }
