@@ -4,7 +4,7 @@ import { LoginComponent } from "./auth/login/login.component";
 import { RegisterComponent } from "./auth/register/register.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { dashboardRoutes } from "./dashboard/dashboard.routes";
-import { AuthGuard } from "./services/auth.guard";
+import { AuthGuard } from "./services/auth.guard"; 
 
 
 const routes: Routes = [
@@ -12,9 +12,11 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {
       path: '',
-      component: DashboardComponent,
-      children: dashboardRoutes,
-      canActivate: [ AuthGuard ] //Section 7, class 80
+      // canActivate: [ AuthGuard ] 
+      canLoad:  [ AuthGuard ], //Section 10, lecture 121 Can load
+      loadChildren: () => import('./ingreso-egreso/ingreso-egreso.module')
+                                .then(m=> m.IngresoEgresoModule) //Section 10, lecture 120 lazy load
+
     },
     {path: '**', redirectTo:''},
 ];

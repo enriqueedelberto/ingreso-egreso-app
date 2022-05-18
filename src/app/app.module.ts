@@ -4,7 +4,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgChartsModule } from 'ng2-charts';
+
 //Angular Fire
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -14,36 +14,23 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component'; 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
-import { EstadisticasComponent } from './ingreso-egreso/estadisticas/estadisticas.component';
-import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { appReducers } from './app.reducer';
-import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
+
+
+import { appReducers } from './app.reducer'; 
+import { AuthModule } from './auth/auth.module'; 
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    DashboardComponent,
-    IngresoEgresoComponent,
-    EstadisticasComponent,
-    DetalleComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    OrdenIngresoPipe 
+    AppComponent, 
+    
   ],
   imports: [
     BrowserModule,
+    AuthModule,  //Section 9, lecture 116 
+    
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -54,7 +41,8 @@ import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
       maxAge: 25,//Section 8 class 87: Creation reducers and actions with snippets
       logOnly: environment.production
     }),
-    NgChartsModule //Section 9, lecture 110
+    
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
