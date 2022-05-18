@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
 //Angular Fire
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -23,6 +24,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { appReducers } from './app.reducer';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 
 
@@ -37,7 +39,8 @@ import { appReducers } from './app.reducer';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent 
+    SidebarComponent,
+    OrdenIngresoPipe 
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { appReducers } from './app.reducer';
     StoreDevtoolsModule.instrument({
       maxAge: 25,//Section 8 class 87: Creation reducers and actions with snippets
       logOnly: environment.production
-    })
+    }),
+    NgChartsModule //Section 9, lecture 110
   ],
   providers: [],
   bootstrap: [AppComponent]

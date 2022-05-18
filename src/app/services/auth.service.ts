@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducer';
 import  * as authActions from '../auth/auth.actions';
+import * as ingresoEgresoActions from '../ingreso-egreso/ingreso-egreso.actions';
 
 
 
@@ -15,10 +16,16 @@ import  * as authActions from '../auth/auth.actions';
 export class AuthService {
 
   userSubscription: Subscription | undefined; //Section 8, class 92
+  private _user: Usuario | undefined;
 
   constructor(public auth: AngularFireAuth,
               private store: Store<AppState>, //Section 8, class 91
               private firestore: AngularFirestore  ) { }
+
+
+  get user(){  //Section 9, class 99
+    return {...this._user };
+  }              
 
   initAuthListener() {
     this.auth.authState.subscribe( fuser => {
@@ -30,13 +37,18 @@ export class AuthService {
              console.log(firestoreUser);
              
              const user =   Usuario.fromFireBase(firestoreUser );  //Section 8, class 92
+             this._user = user;
 
              this.store.dispatch( authActions.setUser ( {user} ));//Section 8, class 91
+             
+
            });
        
       }else{ 
+        this._user = undefined;
         this.userSubscription?.unsubscribe();
         this.store.dispatch( authActions.unSetUser()); //Section 8, class 92
+        this.store.dispatch( ingresoEgresoActions.unSetItems());//Section 9, class 105
       }
 
      
